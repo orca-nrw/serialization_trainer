@@ -1,7 +1,12 @@
 # Serialisierungstrainer
 
 ## Beschreibung
-...
+Willkommen zum Serialisierungstrainer. Mit diesem Programm haben Sie die Möglichkeit selbständig Ihr Wissen zur 
+Mehrbenutzersynchronisation in der Datenbanksystemtechnik zu überprüfen. Dafür bietet der Serialisierungstrainer folgende Möglichkeiten.
+Zu den Themen Anomalien, Serialisierung, Zwei-Phasen-Sperrprotokoll, Optimistisches Verfahren und Zeitmarkenverfahren werden Kapitel
+angeboten, in denen die Themen mit einer kurzen Erklärung visualisiert werden. Diese können dazu genutzt werden, um das eigene Verständnis
+zu bestätigen. Zur Kontrolle des eigenen Wissens können Sie zu jedem Thema Übungsaufgaben lösen. Die Aufgaben selber beinhalten immer dieselbe
+Frage, aber die gezeigten Transaktionen werden zufällig erzeugt und sind nicht fest im System hinterlegt.
 
 ## Systemanforderungen
 Voraussetzung für die App ist ein gängiger Webbrowser (Firefox, Google Chrome, Microsoft Edge, Opera, Safari) mit aktiviertem JavaScript in einer aktuellen Version.
@@ -16,7 +21,10 @@ Die ZIP-Variante hat den Vorteil einer von GitHub unabhängigen Version ohne ext
 In einer Lernplattform (z.B. ILIAS oder Moodle) kann die App entweder über die Web-URL, über das Hochladen der ZIP-Datei oder via SCORM integriert werden.
 
 ## Anpassbarkeit
-...
+Sie haben die Möglichkeit, die angezeigten Themen in den Drop-Downboxen zu modifzieren beziehungsweise ein- oder auszublenden. Dazu öffnen
+sie die Datei app/utils/navBarBuilder.js. Dort finden sie im oberen Teil der Datei eine JSON Struktur, welche der Variable navigationVisibilityConfig
+zugeordnet wird. In dieser können sie zu den einzelnen Themen das Attribut "visibility" auf false ändern. Dadurch wird dieses Thema dann nicht mehr in
+der Auswahl angezeigt und ist für den Benutzer unsichtbar.
 
 ## Datenverarbeitung
 Es werden an keiner Stelle Benutzer-spezifische Daten verarbeitet. Es handelt sich um reine Selbsttests mit direktem Feedback, was richtig/falsch beantwortet wurde. Es existieren keine Abhängigkeiten zu externen Servern und es findet entsprechend kein Datenaustausch mit anderen Servern statt.
