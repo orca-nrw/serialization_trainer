@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Optimistisches-Verfahren</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light center">
+        <div class="container-xxl">
+          <a class="navbar-brand" href="#">Optimistisches-Verfahren</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="../../../index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Kapitel
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="kapitelDropdown">
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Übungen
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="uebungenDropdown">
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row">
+          <p class="lead">
+            Das optimistische Verfahren in der Variante BOCC (Backward Oriented Optimistic Concurrency Control) folgt dem Prinzip, nicht in laufende Transaktionen einzugreifen und die Prüfung auf Konflikte immer erst am Ende einer Transaktion durchzuführen. Bei der Validierung am Ende wird geprüft, ob in dieser Transaktion gelesene Datenbankobjekte von anderen Transaktionen verändert wurden, die während der Lesephase beendet wurden. Nähere Informationen finden Sie unter Details.
+          </p>
+          <div class="col">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#description" style="margin-bottom: 15px;">
+              Details
+          </button>
+          </div>
+          <div class="row">
+            <canvas class="img-responsive" id="optimisticDiagram" height="400pt" width="1100pt"></canvas>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <table class="table table-striped" id="optimisticTable">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Gelesene Objekte</th>
+                  <th>Andere Transaktionen die beendet wurden</th>
+                  <th>veränderte Objekte anderer Transaktionen</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <button class="btn btn-primary" onclick="randomize(3, 2)">Neue Konstellation generieren</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="description" tabindex="-1" aria-labelledby="descriptionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="descriptionLabel">Zeitmarken-Verfahren Beschreibung</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p class="">
+                 Beim optimistischen Verfahren in der Variante BOCC (Backward Oriented Optimistic Concurrency Control) wird erst am Ende auf mögliche Konflikte geprüft. Dafür wird die Transaktion in 3 Phasen unterteilt, welche im Folgenden beschrieben sind:
+                 <ul class="list">
+                   <li><b>Lesephase:</b> In dieser Phase führt die Transaktion ihre Lese- und Schreiboperationen aus. Für Schreiboperationen verwendendie Transaktionen ihre eigene private Kopie der Datenbankobjekte, auf der andere Transaktionen keinen Zugriff haben.</li>
+                   <li><b>Validierungsphase:</b> Wird beim Commit ausgeführt. In dieser Phase wird die Transaktion geprüft, ob diese mit einer anderen Transaktion in Konflikt geraten ist. Sollte ein Konflikt vorliegen, muss diese Transaktion zurückgesetzt werden und neu gestartet werden. Die Validierungsphase ist bei der BOCC Variante erfolgreich, wenn kein Datenbankobjekt, welches von einer Transaktion geändert wurde, die während der Lesephase dieser Transaktion beendet wurde, durch diese Transaktion gelesen wurde.</li>
+                   <li><b>Schreibphase:</b> Wird nur für Transaktionen ausgeführt, welche Änderungen an der Datenbank vornehmen. Diese werden in dieser Phase festgeschrieben und für andere Transaktionen sichtbar.</li>
+                 </ul>
+                 <br>
+                 In der Transaktionstabelle werden folgende Befehle bzw. Abkürzungen verwendet verwendet:<br>
+                 <ul class="list">
+                  <li><b>BOT:</b> Beginn of Transaction oder auch einfach der Start der Transaktion.</li>
+                  <li><b>read(&lt;Datenbankobjekt&gt;):</b> Liest das in Klammern angegeben Datenbankobjekt.</li>
+                  <li><b>write(&lt;Datenbankobjekt&gt;):</b> Schreibt einen Wert in das in Klammern angegeben Datenbankobjekt.</li>
+                  <li><b>commit:</b> Schließt die Transaktion ab und startet die Validierungsphase.</li>
+                  <li><b>RB:</b> Abkürzung für Rollback. Rollt die Transaktion zurück, wenn die Validierungsphase, die oben beschrieben ist, fehlgeschlagen ist.</li>
+                  <li><b>L:</b> Lesephase.</li>
+                  <li><b>V:</b> Validierungsphase</li>
+                  <li><b>S:</b> Schreibphase</li>
+                </ul>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="../../chartjs/chart.min.js" type="text/javascript"></script>
+    <script src="../../utils/navBarBuilder.js" type="text/javascript"></script>
+    <script src="../../utils/scheduleManager.js" type="text/javascript"></script>
+    <script src="./optimistic.js" type="text/javascript"></script>
+    <script src="../../bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../bootstrap-5.1.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../style/general.css">
+</body>
+</html>

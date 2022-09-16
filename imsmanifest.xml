@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- Single SCO content packaging example. SCORM 2004 3rd Edition. Provided by Rustici Software - http://www.scorm.com This example demonstrates the simplest possible manifest, containing just one SCO and no metdata or sequencing information. -->
+<!-- The manifest node contains a unique identifer for this course and the course's version number. The schema declartions are important to ensure you are delivering valid XML. For the most part these should remain static. Other schema prefixes are allowed, but can limit interoperabilty. -->
+<manifest 
+  xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd http://www.adlnet.org/xsd/adlcp_v1p3 adlcp_v1p3.xsd http://www.adlnet.org/xsd/adlseq_v1p3 adlseq_v1p3.xsd http://www.adlnet.org/xsd/adlnav_v1p3 adlnav_v1p3.xsd http://www.imsglobal.org/xsd/imsss imsss_v1p0.xsd" 
+  xmlns:imsss="http://www.imsglobal.org/xsd/imsss" 
+  xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3" 
+  xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3" 
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" 
+  version="1" 
+  identifier="de.hbrs.db.fciesl2s.serialisierungstrainer">
+ <metadata>
+  <schema>ADL SCORM</schema>
+  <schemaversion>2004 3rd Edition</schemaversion>
+ </metadata>
+ <organizations default="hbrs_de">
+  <organization identifier="hbrs_de">
+   <title>Serialisierungstrainer</title>
+   <item identifier="item_1" identifierref="resource_1">
+    <title>Serialisierungstrainer</title>
+   </item>
+  </organization>
+ </organizations>
+ <resources>
+  <resource identifier="resource_1" href="index.html" adlcp:scormType="sco" type="webcontent">
+   <file href="index.html"/>
+  </resource>
+ </resources>
+</manifest>

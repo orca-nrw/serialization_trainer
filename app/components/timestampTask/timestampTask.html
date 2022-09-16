@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Übung Zeitmarkenverfahren</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-xxl">
+          <a class="navbar-brand" href="#">Zeitmarken-Verfahren</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="../../../index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Kapitel
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="kapitelDropdown">
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Übungen
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="uebungenDropdown">
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row" id="question">
+            <p>Unten stehend sind mehrere Transaktionen mit dem Zeitmarken-Verfahren dargestellt. Geben sie in der Antwortmaske unten an, ob die Transaktionen zurückgerollt werden müssen oder nicht.</p>
+        </div>
+        <div id="correctAnswer" class="alert alert-success" role="alert" hidden>
+          Ihre Antwort ist korrekt!
+        </div>
+        <div id="wrongAnswer" class="alert alert-danger" role="alert" hidden>
+          Eine oder mehrere Ihrer Antworten sind leider falsch!
+        </div>
+        <div class="row">
+          <canvas class="img-responsive" id="timestampDiagram" height="400pt" width="1100pt"></canvas>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <table class="table table-striped" id="timestampPerStep">
+            </table>
+          </div>
+          <div class="col-6">
+            <table class="table table-striped" id="transactionTimestamp">
+              <thead>
+                <tr>
+                  <th>Transaktion</th>
+                  <th>BOT Zeitstempel</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+        <div class="row" id="resolvePossibilities">
+            <div class="col-3">
+                <table class="table table-striped" id="choiceTable">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Rollback</th>
+                            <th>Kein Rollback</th>
+                        </tr>
+                    </thead>
+                </table>
+                <button type="button" class="btn btn-primary" onClick="resolve()" id="resolveButton" disabled>Antworten</button>
+            </div>
+        </div>
+        <div class="row" id="nextButton" hidden>
+          <div class="col-3">
+            <button type="button" class="btn btn-primary" onClick="nextQuestion()">Neue Frage</button>
+          </div>
+        </div>
+      </div>
+      
+    <script src="../../utils/navBarBuilder.js" type="text/javascript"></script>
+    <script src="../../utils/scheduleManager.js" type="text/javascript"></script>  
+    <script src="../timestamp/timestamp.js" type="text/javascript"></script>
+    <script src="./timestampTask.js" type="text/javascript"></script>
+    <script src="../../bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../bootstrap-5.1.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../style/general.css">
+</body>
+</html>

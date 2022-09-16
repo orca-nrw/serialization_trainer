@@ -1,0 +1,16 @@
+body {
+    background-color: gray;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+}
+
+.row {
+    margin: 0px;
+}
+
+canvas {
+    border-style: solid;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Anomalien</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-xxl">
+          <a class="navbar-brand" href="#">Anomalien</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="../../../index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Kapitel
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="kapitelDropdown">
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Übungen
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="uebungenDropdown">
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Lost Update</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Non-Repeatable Read</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Dirty Read</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="row">
+              <p class="lead">
+                Bei dem Lost Update Phänomen wird ein Wert, der von einer Transaktion geschrieben wurde von einer anderen Transaktion überschrieben.
+              </p>
+              <div>
+                <table class="table table-striped" id="lostUpdateTable">
+                </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <button class="btn btn-primary" onclick="randomizeLostUpdate(2, 1, true);">Neue Konstellation generieren</button>
+              </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="row">
+            <p class="lead">
+              Bei dem Non-Repeatable-Read Phänomen kann eine Transaktion während ihrer Laufzeit von einem Attribut zu unterschiedlichen Zeitpunkten unterschiedliche Werte lesen, da das Attribut während der Transaktion von einer anderen Transaktion verändert wurde.
+            </p>
+            <div>
+              <table class="table table-striped" id="nonRepeatableReadTable">
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <button class="btn btn-primary" onclick="randomizeNonRepeatableRead(2, 2, true);">Neue Konstellation generieren</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <div class="row">
+            <p class="lead">
+              Bei dem Dirty-Read Phänomen verändert eine Transaktion einen Wert, welcher von einer anderen Transaktion gelesen wird. Die Transaktion, die das Attribut verändert hat, wird allerdings zurückgesetzt und die andere Transaktion, die den veränderten Wert des Attributs gelesen hat, arbeitet auf einen "verschmutzten" Wert.
+            </p>
+            <div>
+              <table class="table table-striped" id="dirtyReadTable">
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <button class="btn btn-primary" onclick="randomizeDirtyRead(2, 1, true);">Neue Konstellation generieren</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      
+    <script src="../../chartjs/chart.min.js" type="text/javascript"></script>
+    <script src="../../utils/navBarBuilder.js" type="text/javascript"></script>
+    <script src="../../utils/scheduleManager.js" type="text/javascript"></script>
+    <script src="./anomalies.js" type="text/javascript"></script>
+    <script src="../../bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../bootstrap-5.1.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../style/general.css">
+</body>
+</html>
