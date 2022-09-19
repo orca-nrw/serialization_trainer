@@ -1,12 +1,7 @@
 # Serialisierungstrainer
 
 ## Beschreibung
-Willkommen zum Serialisierungstrainer. Mit diesem Programm haben Sie die Möglichkeit selbständig Ihr Wissen zur 
-Mehrbenutzersynchronisation in der Datenbanksystemtechnik zu überprüfen. Dafür bietet der Serialisierungstrainer folgende Möglichkeiten.
-Zu den Themen Anomalien, Serialisierung, Zwei-Phasen-Sperrprotokoll, Optimistisches Verfahren und Zeitmarkenverfahren werden Kapitel
-angeboten, in denen die Themen mit einer kurzen Erklärung visualisiert werden. Diese können dazu genutzt werden, um das eigene Verständnis
-zu bestätigen. Zur Kontrolle des eigenen Wissens können Sie zu jedem Thema Übungsaufgaben lösen. Die Aufgaben selber beinhalten immer dieselbe
-Frage, aber die gezeigten Transaktionen werden zufällig erzeugt und sind nicht fest im System hinterlegt.
+Mit dem Serialisierungstrainer kann das Wissen zur Mehrbenutzersynchronisation in der Datenbanksystemtechnik trainiert werden. Zu den Themen Anomalien, Serialisierung, Zwei-Phasen-Sperrprotokoll, Optimistisches Verfahren und Zeitmarkenverfahren werden Kapitel angeboten, in denen die Themen mit einer kurzen Erklärung visualisiert werden. Zur Kontrolle können zu jedem Thema Übungsaufgaben gelöst werden. Die Aufgaben selber beinhalten immer dieselbe Frage, aber die gezeigten Transaktionen werden zufällig erzeugt und sind nicht fest im System hinterlegt.
 
 ## Systemanforderungen
 Voraussetzung für die App ist ein gängiger Webbrowser (Firefox, Google Chrome, Microsoft Edge, Opera, Safari) mit aktiviertem JavaScript in einer aktuellen Version.
