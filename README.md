@@ -36,6 +36,11 @@ In der unveränderten Basiskonfiguration werden an keiner Stelle Benutzer-spezif
 Es handelt sich um reine Selbsttests mit direktem Feedback, was richtig/falsch beantwortet wurde.
 Es existieren keine Abhängigkeiten zu externen Servern und es findet entsprechend kein Datenaustausch mit anderen Servern statt.
 
+## Lizenzen
+Dieses Repository enthält Software und Content.
+Bei der Software handelt es sich um freie Software unter der [MIT-Lizenz](/LICENSE).
+Beim Content handelt es sich um gemeinfreie Inhalte unter der [CC0-Lizenz](https://creativecommons.org/publicdomain/zero/1.0/deed.de).
+
 ## Hintergrundinformationen
 Der Serialisierungstrainer wurde an der Hochschule Bonn-Rhein-Sieg im Rahmen des [EILD-Projekts](https://github.com/EILD-nrw) von Frederic Cieslik
 in seiner Master-Abschlussarbeit auf Basis von HTML, CSS und JavaScript entwickelt und vom Projektmitarbeiter André Kless angepasst und hier veröffentlicht.
