@@ -37,6 +37,8 @@
         </div>
       </nav>
       <div class="container">
+        <ccm-anomaly_trainer src='["ccm.load",{"url":"./../anomaly_trainer/configs.js#dirty_read_trainer","type":"module"}]'></ccm-anomaly_trainer>
+        <!--
         <div class="row" id="question">
             <p>Unten stehend ist eine Transaktion dargestellt. Liegt in dieser dargestellten Transaktion das Dirty-Read Phänomen vor?</p>
         </div>
@@ -71,8 +73,10 @@
             <button type="button" class="btn btn-primary" onClick="nextQuestion()">Neue Frage</button>
           </div>
         </div>
+        -->
       </div>
-      
+
+    <script src="../anomaly_trainer/ccm.anomaly_trainer.js"></script>
     <script src="../../chartjs/chart.min.js" type="text/javascript"></script>
     <script src="../../utils/navBarBuilder.js" type="text/javascript"></script>
     <script src="../../utils/scheduleManager.js" type="text/javascript"></script>

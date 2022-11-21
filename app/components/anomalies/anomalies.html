@@ -50,6 +50,8 @@
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <ccm-anomaly_trainer src='["ccm.load",{"url":"./../anomaly_trainer/configs.js#lost_update_gen","type":"module"}]'></ccm-anomaly_trainer>
+            <!--
             <div class="row">
               <p class="lead">
                 Bei dem Lost Update Phänomen wird ein Wert, der von einer Transaktion geschrieben wurde von einer anderen Transaktion überschrieben.
@@ -64,8 +66,11 @@
                 <button class="btn btn-primary" onclick="randomizeLostUpdate(2, 1, true);">Neue Konstellation generieren</button>
               </div>
             </div>
+            -->
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <ccm-anomaly_trainer src='["ccm.load",{"url":"./../anomaly_trainer/configs.js#non_repeatable_read_gen","type":"module"}]'></ccm-anomaly_trainer>
+          <!--
           <div class="row">
             <p class="lead">
               Bei dem Non-Repeatable-Read Phänomen kann eine Transaktion während ihrer Laufzeit von einem Attribut zu unterschiedlichen Zeitpunkten unterschiedliche Werte lesen, da das Attribut während der Transaktion von einer anderen Transaktion verändert wurde.
@@ -80,8 +85,11 @@
               <button class="btn btn-primary" onclick="randomizeNonRepeatableRead(2, 2, true);">Neue Konstellation generieren</button>
             </div>
           </div>
+          -->
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <ccm-anomaly_trainer src='["ccm.load",{"url":"./../anomaly_trainer/configs.js#dirty_read_gen","type":"module"}]'></ccm-anomaly_trainer>
+          <!--
           <div class="row">
             <p class="lead">
               Bei dem Dirty-Read Phänomen verändert eine Transaktion einen Wert, welcher von einer anderen Transaktion gelesen wird. Die Transaktion, die das Attribut verändert hat, wird allerdings zurückgesetzt und die andere Transaktion, die den veränderten Wert des Attributs gelesen hat, arbeitet auf einen "verschmutzten" Wert.
@@ -96,10 +104,12 @@
               <button class="btn btn-primary" onclick="randomizeDirtyRead(2, 1, true);">Neue Konstellation generieren</button>
             </div>
           </div>
+          -->
         </div>
       </div>
       </div>
-      
+
+    <script src="../anomaly_trainer/ccm.anomaly_trainer.js"></script>
     <script src="../../chartjs/chart.min.js" type="text/javascript"></script>
     <script src="../../utils/navBarBuilder.js" type="text/javascript"></script>
     <script src="../../utils/scheduleManager.js" type="text/javascript"></script>
